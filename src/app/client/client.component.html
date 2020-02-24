@@ -1,0 +1,123 @@
+<div class="row">
+    <div class="col-xs-1 col-sm-1 col-md-1">
+        <img width="100" alt="Angular Logo"
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+    </div>
+    <div class="col-xs-5 col-sm-5 col-md-5">
+        <br>
+        <h2>
+            Client {{ title }}
+        </h2>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3">
+        <br>
+        <nav class="navbar navbar-light ">
+            
+                <button class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Type the document and then click on search" (click)="getClient()" >Search</button>
+           
+        </nav>
+    </div>
+
+    <div class="col-xs-2 col-sm-2 col-md-2">
+        <br>
+        <nav class="navbar navbar-light ">
+           <!-- <button class="btn btn-primary" type="button" (click)="isCollapsed = !isCollapsed"
+                [attr.aria-expanded]="!isCollapsed" aria-controls="collapseForm">Exit</button>-->
+        </nav>
+    </div>
+</div>
+<br>
+
+<div class="row">
+    <div class="col-xs-1 col-sm-1 col-md-1">
+            
+    </div>
+    <div class="col-md-7">
+<!---->
+        <form [formGroup]="clientForm">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Document Type</label>
+                    <select formControlName="documentType" class="form-control">
+                        <option value="C">CÉDULA DE CIUDADANÍA</option>
+                        <option value="N">NIT</option>
+                        <option value="E">CÉDULA EXTRANJERÍA</option>
+                        <option value="T">TARJETA IDENTIDAD</option>
+                        <option value="I">REGISTRO CIVIL</option>
+                        <option value="M">REGISTRO</option>
+                        <option value="P">PASAPORTE </option>
+                        <option value="D">CARNE DIPLOMÁTICO </option>
+                        <option value="Z">PERMISO ESPECIAL</option>
+                        <option value="V">CERTIFICADO NAC VIVO</option>
+                        <option value="S">SALVO COND PERMANENTE</option>
+                        <option value="U">PASAPORTE NU</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label >Document Number</label>
+                    <input type="text" formControlName="documentNumber" class="form-control" placeholder="Document Number">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label >First Name</label>
+                    <input type="text" formControlName="firstName" class="form-control" placeholder="Juan" value="{{dataClient.firstName}}"> 
+                </div>
+                <div class="form-group col-md-6">
+                    <label >Second Name</label>
+                    <input type="text" formControlName="secondName" class="form-control" placeholder="Pablo" value="{{dataClient.secondName}}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label >Last Name</label>
+                    <input type="text" formControlName="lastName" class="form-control" placeholder="Gomez" value="{{dataClient.lastName}}">
+                </div>
+                <div class="form-group col-md-6">
+                    <label >Second Surname</label>
+                    <input type="text" formControlName="secondSurname"  class="form-control" placeholder="Arias" value="{{dataClient.secondSurname}}">
+                </div>
+            </div>
+            <div class="form-row">
+                <label >Mobile</label>
+                <input type="number" formControlName="cellphone" class="form-control" placeholder="3045476467" value="{{dataClient.cellphone}}">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Sex</label>
+                    <select formControlName="sex" class="form-control" value="{{dataClient.sex}}">
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label >Birthdate</label>
+                    <input type="text" formControlName="birthDate" class="form-control" placeholder="1985-02-19" value="{{dataClient.birthDate}}">
+                </div>
+            </div>
+            <div class="form-row">
+                <label >Email address</label>
+                <input type="email" formControlName="email" class="form-control"  placeholder="name@example.com" value="{{dataClient.email}}">
+            </div>
+
+        </form>
+    </div>
+
+</div>
+<br>
+
+<div class="row">
+    <div class="col-xs-2 col-sm-2 col-md-2">
+    </div>
+    <div class="col-xs-1 col-sm-1 col-md-1">
+        <button type="button" id="save" class="btn btn-success btn-lg" (click)="saveClient()"> Save </button>
+    </div>
+    <div class="col-xs-1 col-sm-1 col-md-1">
+        <button type="button" id="update" class="btn btn-primary btn-lg" type="submit"> Update </button>
+    </div>
+    <div class="col-xs-1 col-sm-1 col-md-1">
+        <button type="button" id="delete" class="btn btn-danger btn-lg" type="submit"> Delete </button>
+    </div>
+</div>
+
+<br>
