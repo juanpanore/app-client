@@ -17,7 +17,7 @@ import { Config } from 'protractor';
     styleUrls: ['./client.component.css']
 })
 export class ClientComponent implements OnInit {
-    public title = 'Management';
+    public title = 'Client Management';
     public isCollapsed = false;
     submitted = false;
     dataClient: Client;
@@ -29,6 +29,8 @@ export class ClientComponent implements OnInit {
 
 
     ngOnInit() {
+
+        this.dataClient = new Client();
 
         this.clientForm = this.formBuilder.group({
             documentType: ['', Validators.required],
@@ -47,7 +49,21 @@ export class ClientComponent implements OnInit {
 
     get f() { return this.clientForm.controls; }
 
+    public transformDocumentType( documentType ): void {
+
+        if (documentType === 'N'){
+            documentType='A';
+        }
+        console.log("transform {} ", documentType);
+
+     return documentType;
+    }
+
     public getClient(): void {
+        
+        let documentType = this.transformDocumentType(this.clientForm.get("documentType").value);
+
+        console.log("new documentType {} ", documentType);
 
 
         this.clientService.getClient(this.clientForm.get("documentType").value, this.clientForm.get("documentNumber").value).subscribe(

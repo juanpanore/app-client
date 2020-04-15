@@ -6,6 +6,14 @@ export class AppPage {
   }
 
   getTitleText() {
-    return element(by.css('app-root h1')).getText() as Promise<string>;
+    return element(by.css('app-root client')).getTagName() as Promise<string>;
+  }
+
+  getTitleClient() {
+    return element(by.css('app-root client h2')).getText() as Promise<string>;
+  }
+
+  getButton( id : string ) {
+    return element(by.id(id)).getText() as Promise<string>;
   }
 }
