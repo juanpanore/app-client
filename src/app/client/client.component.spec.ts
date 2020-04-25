@@ -34,11 +34,11 @@ it('Debe crear componente',() =>{
   expect(component).toBeTruthy();
 });
 
-it ('Debe transformar tipo documento N', () =>{
+/*it ('Debe transformar tipo documento N', () =>{
     let tipoDocumento = component.transformDocumentType('N');
     expect (tipoDocumento).toBe('A');
     expect (tipoDocumento).not.toBe ('C');
-});
+});*/
 
 it ('Debe validar formulario si esta  vacio sea invalido', () => {
   expect(component.clientForm.valid).toBeFalsy;
@@ -58,7 +58,10 @@ it( 'Debe validar campor email', () => {
   expect(errors['required']).toBeFalsy();
   expect(errors['email']).toBeFalsy();
   
-
 });
+
+
+
+
 
 });

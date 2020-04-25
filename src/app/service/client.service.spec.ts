@@ -66,6 +66,17 @@ describe('ClientService', () => {
   expect(req.request.method).toEqual('GET');
   expect (dataError).toBeUndefined();
   expect( dataResp.body[0].id).toBe ('5e50b8cb0098b3714122070e');
+  expect( dataResp.body[0].documentType).toBe ('C');
+  expect( dataResp.body[0].documentNumber).toBe ('1040039865');
+  expect( dataResp.body[0].firstName).toBe ('juan');
+  expect( dataResp.body[0].secondName).toBe ('pablo');
+  expect( dataResp.body[0].lastName).toBe ('norena');
+  expect( dataResp.body[0].secondSurname).toBe ('blandon');
+  expect( dataResp.body[0].birthDate).toBe ('1985-02-19T00:00:00.000+0000');
+  expect( dataResp.body[0].sex).toBe ('M');
+  expect( dataResp.body[0].cellphone).toBe (3045476464);
+  expect( dataResp.body[0].createdDate).toBe ('2020-02-22T05:14:51.080+0000');
+  expect( dataResp.body[0].modifiedDate).not.toBe (null);
 
   });
 
